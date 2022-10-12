@@ -8,27 +8,32 @@
     <script defer src="hyperV.js"></script>
   </head>
   <body>
-    <form action="" method="get" class="Config">
-      <div class="vmNameDiv"><input type="text" class="vmName"></div>
-      <div id="VMmemoryDiv" class="configDiv">
-          <input type="range" id="vmMemory" min="2" max="128" step="2">
-          <output id="vmMemoryValueOut">16 GB</output>
+    <div id="grid">
+      <div id="sideBar">
+
       </div>
-      <!---->
-      <div id="VMBootDeviceDiv" class="configDiv">
-        <select id="vmBootDevice">
-            <option value="vmBootdeviceCD">CD</option>
-            <option value="vmBootdeviceIDE">IDE</option>
-            <option value="vmBootdeviceLN">LegacyNetworkAdapter</option>
-            <option value="vmBootdeviceNA">Network Adapter</option>
-            <option value="vmBootdeviceVHD">VHD</option>
-        </select>
-      </div>
-      <div id="VMVHDPathDiv"><input type="file"></div>
-      <div id="VMmemoryDiv" class="configDiv">
-        <input type="range" id="vmMemory" min="2" max="16" step="1">
-        <output id="vmMemoryValueOut">16 TB</output>
-      </div>
-    </form>
+      <form action="" method="get" class="Config">
+        <div class="vmNameDiv"><input type="text" class="vmName"></div>
+        <div id="VMmemoryDiv" class="configDiv">
+            <input type="range" id="vmMemory" min="2" max="128" step="2">
+            <output id="vmMemoryValueOut">16 GB</output>
+        </div>
+        <!---->
+        <div id="VMBootDeviceDiv" class="configDiv">
+          <select id="vmBootDevice">
+              <option value="vmBootdeviceCD">CD</option>
+              <option value="vmBootdeviceIDE">IDE</option>
+              <option value="vmBootdeviceLN">LegacyNetworkAdapter</option>
+              <option value="vmBootdeviceNA">Network Adapter</option>
+              <option value="vmBootdeviceVHD">VHD</option>
+          </select>
+        </div>
+        <div id="VMVHDPathDiv"><input type="file"></div>
+        <div id="VMmemoryDiv" class="configDiv">
+          <input type="range" id="vmMemory" min="2" max="16" step="1">
+          <output id="vmMemoryValueOut">16 TB</output>
+        </div>
+      </form>
+    </div>
   </body>
 </html>

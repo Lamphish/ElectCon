@@ -3,16 +3,14 @@
     --grey-highlight: rgba(150, 150, 150, 0.432);
     --blue-main: rgba(0, 180, 171, 0.644);
 }
-
-.gridContainer {
-    display: grid;
-    grid-template-rows: 300px 300px 300px;
-    grid-template-columns: 600px;
-    gap: 50px;
+body {
+    margin: 0;
     padding: 0;
 }
-.gridItem {
-    width: 100%;
-    height: 100%;
-    background-color: aqua;
+
+#grid {
+    display: grid;
+    width: 100vw;
+    height: 100vh;
+    background-color: beige;
 }
