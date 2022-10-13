@@ -4,27 +4,27 @@
     <meta charset="UTF-8" />
     <title>Hello World!</title>
     <link rel="stylesheet" href="index.css" />
-    <script defer src=""></script>
   </head>
   <body>
     <div id="mainGrid">
-      <div id="header">
+      <div id="header" class="defaultContainer">
         header
       </div>
-      <div id="sidebar">
-        sidebar
+      <div id="sidebar" class="defaultContainer">
+        <div class="sidebarElement">spacer</div>
+        <div id="DC01" class="sidebarElement">DC01</div>
       </div>
       <div id="menue">
         <div id="menuePill">
-          <div class="menuePoint">Allgemein</div>
-          <div class="menuePoint">Lorum</div>
-          <div class="menuePoint">Ipsum</div>
+          <div class="menuePoint defaultContainer">Allgemein</div>
+          <div class="menuePoint defaultContainer">Lorum</div>
+          <div class="menuePoint defaultContainer">Ipsum</div>
         </div>
-        <div id="menueContent">
-          menueContents
+        <div id="menueContentContainer" class="defaultContainer">
+          <iframe src="../src/hyperV/test.html" frameborder="0" id="menueContent"></iframe>
         </div>
       </div>
-      <div id="footer">
+      <div id="footer" class="defaultContainer">
         footer
       </div>
     </div>
