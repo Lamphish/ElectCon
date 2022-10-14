@@ -1,5 +1,7 @@
-const { app, BrowserWindow } = require('electron');
+const { app, BrowserWindow, ipcMain } = require('electron');
 const path = require('path');
+var fs = require("fs")
+const { exec } = require('child_process');
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 // eslint-disable-next-line global-require
@@ -12,9 +14,11 @@ const createWindow = () => {
   const mainWindow = new BrowserWindow({
     width: 800,
     height: 600,
-    //autoHideMenuBar: true, 
+    //autoHideMenuBar: true,
     webPreferences: {
-      preload: path.join(__dirname, 'preload.js'),
+      nodeIntegration: true,
+      contextIsolation: true,
+      preload: path.resolve("./src/preload.js")
     },
     
   });
@@ -39,6 +43,29 @@ app.on('window-all-closed', () => {
     app.quit();
   }
 });
+
+//catches the event
+ipcMain.on("buttonClicked", () => {
+  console.log("buttonClickEventRegistered")
+  //readfile and pars err and data
+  fs.readFile("./src/hyperV/test.ps1", 'utf8', function (err,data) {
+    if (err) {
+      return console.log(err);
+    }
+    //gets data of test.ps1 replaces "[testWebsite]" with "amazon.com" and saves it in ah.ps1
+    var result = data.replace("[testWebsite]", 'amazon.com'); 
+    fs.writeFile("./src/hyperV/ah.ps1", result, 'utf8', function (err) {
+       if (err) return console.log(err);
+    });
+  });
+  console.log("File written")
+  //executes the ah.ps1 with powershell and catches errors
+  exec("./src/hyperV/ah.ps1", {'shell':'powershell.exe'}, (error, stdout)=> {
+    console.log(stdout)
+    console.log(error)
+  })
+  console.log("File Executed - Changes made")
+})
 
 app.on('activate', () => {
   // On OS X it's common to re-create a window in the app when the

@@ -1,1 +1,0 @@
-Test-Connection google.com
