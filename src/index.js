@@ -1,7 +1,7 @@
 const { app, BrowserWindow, ipcMain } = require('electron');
 const path = require('path');
-var fs = require("fs")
 const { exec } = require('child_process');
+
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 // eslint-disable-next-line global-require
@@ -44,29 +44,6 @@ app.on('window-all-closed', () => {
   }
 });
 
-//catches the event
-ipcMain.on("buttonClicked", () => {
-  console.log("buttonClickEventRegistered")
-  //readfile and pars err and data
-  fs.readFile("./src/hyperV/test.ps1", 'utf8', function (err,data) {
-    if (err) {
-      return console.log(err);
-    }
-    //gets data of test.ps1 replaces "[testWebsite]" with "amazon.com" and saves it in ah.ps1
-    var result = data.replace("[testWebsite]", 'amazon.com'); 
-    fs.writeFile("./src/hyperV/ah.ps1", result, 'utf8', function (err) {
-       if (err) return console.log(err);
-    });
-  });
-  console.log("File written")
-  //executes the ah.ps1 with powershell and catches errors
-  exec("./src/hyperV/ah.ps1", {'shell':'powershell.exe'}, (error, stdout)=> {
-    console.log(stdout)
-    console.log(error)
-  })
-  console.log("File Executed - Changes made")
-})
-
 app.on('activate', () => {
   // On OS X it's common to re-create a window in the app when the
   // dock icon is clicked and there are no other windows open.
@@ -77,3 +54,9 @@ app.on('activate', () => {
 
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and import them here.
+ipcMain.on("testCon", (event, data) => {
+  exec("Test-Connection " + data, {'shell':'powershell.exe'}, (error, stdout)=> {
+    console.log(stdout)
+    console.log(error)
+  })
+});

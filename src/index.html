@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <title>Hello World!</title>
-    <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="index.css"/>
   </head>
   <body>
     <div id="mainGrid">
@@ -14,16 +14,21 @@
         <div class="sidebarElement">spacer</div>
         <div id="DC01" class="sidebarElement">DC01</div>
       </div>
-      <div id="menue">
-        <div id="menuePill">
+
+      <div class="menue">
+        <div class="menuePillContainer">
           <div class="menuePoint defaultContainer">Allgemein</div>
           <div class="menuePoint defaultContainer">Lorum</div>
           <div class="menuePoint defaultContainer">Ipsum</div>
         </div>
-        <div id="menueContentContainer" class="defaultContainer">
-          <iframe src="./hyperV/test.html"><button id="button"></button></iframe>
+        <div class="defaultContainer">
+          <div id="testButtonContent">
+            <input type="text" id="input">
+            <button id="button">click me</button>
+          </div>
         </div>
       </div>
+
       <div id="footer" class="defaultContainer">
         footer
       </div>

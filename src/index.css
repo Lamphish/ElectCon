@@ -41,12 +41,12 @@ body {
   align-items: center;
   height: 10%;
 }
-#menue {
+.menue {
   display: grid;
   grid-template-columns: 100%;
   grid-template-rows: 10% 90%;
 }
-#menuePill {
+.menuePillContainer {
   display: flex;
   flex-direction: row;
 }
