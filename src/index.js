@@ -60,3 +60,7 @@ ipcMain.on("testCon", (event, data) => {
     console.log(error)
   })
 });
+
+ipcMain.on("debug", () => {
+  console.log("\x1b[32m", "IPC Render Test", "\x1b[0m")
+});

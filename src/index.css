@@ -2,6 +2,7 @@
   --gray-background: #32323d;
   --blue-forground: #acacac;
   --mint-highlight: #1b00b36c;
+  --hover-color: #6e6e6e;
 }
 
 body {
@@ -35,26 +36,23 @@ body {
   display: flex;
   flex-direction: column;
 }
-.sidebarElement {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 10%;
-}
 .menue {
   display: grid;
   grid-template-columns: 100%;
   grid-template-rows: 10% 90%;
 }
-.menuePillContainer {
+.pillBox {
   display: flex;
   flex-direction: row;
 }
-.menuePoint {
+.pill, .sidebarElement {
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 10px;
+}
+.pill:hover, .sidebarElement:hover:not(:first-child) {
+  background-color: var(--hover-color);
 }
 #menueContentContainer {
   position: relative;
@@ -71,4 +69,7 @@ body {
 }
 #footer {
   grid-column: 1 / span 2;
+}
+.hidden {
+  display: none;
 }

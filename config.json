@@ -1,3 +1,4 @@
 {
-    "TestWebsiteLocation":"./scripts/ah.ps1"
+    "TestWebsiteLocation":"./defaultScripts/ah.ps1",
+    "menueCount": 2
 }

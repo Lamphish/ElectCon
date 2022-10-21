@@ -12,20 +12,30 @@
       </div>
       <div id="sidebar" class="defaultContainer">
         <div class="sidebarElement">spacer</div>
-        <div id="DC01" class="sidebarElement">DC01</div>
+        <button id="buttonDC" class="sidebarElement defaultContainer">DC</button>
+        <button id="buttonTS" class="sidebarElement defaultContainer">TS</button>
       </div>
 
-      <div class="menue">
-        <div class="menuePillContainer">
-          <div class="menuePoint defaultContainer">Allgemein</div>
-          <div class="menuePoint defaultContainer">Lorum</div>
-          <div class="menuePoint defaultContainer">Ipsum</div>
+      <div id="menueDC" class="menue">
+        <div id="pillBoxDC" class="pillBox">
+          <button id="pillDCAllgemein" class="pill defaultContainer">Allgemein</button>
+          <button id="pillDCLorum" class="pill defaultContainer">Lorum</button>
+          <button id="pillDCIpsum" class="pill defaultContainer">Ipsum</button>
         </div>
-        <div class="defaultContainer">
-          <div id="testButtonContent">
-            <input type="text" id="input">
-            <button id="button">click me</button>
-          </div>
+        <div id="contentDC" class="defaultContainer">
+          <button id="test"></button>
+          <input type="text" id="in">
+        </div>
+      </div>
+
+      <div id="menueTS" class="menue hidden">
+        <div id="pillBoxTS" class="pillBox">
+          <button id="pillTSAllgemein" class="pill defaultContainer">Allgemein</button>
+          <button id="pillTSLorum" class="pill defaultContainer">Lorum</button>
+          <button id="pillTSIpsum" class="pill defaultContainer">Ipsum</button>
+        </div>
+        <div id="contentTS" class="defaultContainer">
+          <p id="output">you clicked it huh</p>
         </div>
       </div>
 
