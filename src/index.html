@@ -7,37 +7,44 @@
   </head>
   <body>
     <div id="mainGrid">
-      <div id="header" class="defaultContainer">
-        header
-      </div>
       <div id="sidebar" class="defaultContainer">
         <div class="sidebarElement">spacer</div>
-        <button id="buttonDC" class="sidebarElement defaultContainer">DC</button>
-        <button id="buttonTS" class="sidebarElement defaultContainer">TS</button>
+        <button id="button_DC" class="sidebarElement defaultContainer">DC</button>
+        <button id="button_TS" class="sidebarElement defaultContainer">TS</button>
       </div>
 
-      <div id="menueDC" class="menue">
-        <div id="pillBoxDC" class="pillBox">
-          <button id="pillDCAllgemein" class="pill defaultContainer">Allgemein</button>
-          <button id="pillDCLorum" class="pill defaultContainer">Lorum</button>
-          <button id="pillDCIpsum" class="pill defaultContainer">Ipsum</button>
+      <div id="menueContainer">
+
+        <div id="menue_DC" class="menue">
+          <div class="chipContainer">
+            <div class="chip defaultContainer">Chip 1</div>
+            <div class="chip defaultContainer">Chip 2</div>
+            <div class="chip defaultContainer">Chip 3</div>
+          </div>
+          <div class="defaultContainer">
+            <input type="text" class="defaultContainer" id="value1">
+            <input type="text" class="defaultContainer" id="value2">
+            <input type="text" class="defaultContainer" id="value3">
+            <input type="text" class="defaultContainer" id="value4">
+            <button id="send_DC" class="defaultContainer button">Send it</button>
+          </div>
         </div>
-        <div id="contentDC" class="defaultContainer">
-          <button id="test"></button>
-          <input type="text" id="in">
+
+        <div id="menue_TS" class="menue">
+          <div class="chipContainer">
+            <div class="chip defaultContainer">Chip 4</div>
+            <div class="chip defaultContainer">Chip 5</div>
+            <div class="chip defaultContainer">Chip 6</div>
+          </div>
+          <div class="defaultContainer">
+            <button id="button_TS" class="defaultContainer button">TS</button>
+          </div>
         </div>
+
+
       </div>
 
-      <div id="menueTS" class="menue hidden">
-        <div id="pillBoxTS" class="pillBox">
-          <button id="pillTSAllgemein" class="pill defaultContainer">Allgemein</button>
-          <button id="pillTSLorum" class="pill defaultContainer">Lorum</button>
-          <button id="pillTSIpsum" class="pill defaultContainer">Ipsum</button>
-        </div>
-        <div id="contentTS" class="defaultContainer">
-          <p id="output">you clicked it huh</p>
-        </div>
-      </div>
+      
 
       <div id="footer" class="defaultContainer">
         footer
