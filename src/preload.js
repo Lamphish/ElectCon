@@ -1,31 +1,41 @@
 const { ipcRenderer } = require("electron");
-let menues = [
+
+var menues = [
     "menue_DC",
     "menue_TS"
 ]
-
-let inputs = [
-    "value1",
-    "value2",
-    "value3",
-    "value4"
+//html site input field id`s
+var inputs = [
+    "value1_DC",
+    "value2_DC",
+    "value3_DC",
+    "value4_DC"
 ]
 //loads as soon as the site is loaded
 document.addEventListener("DOMContentLoaded", function () {
     console.log("DOMLoader");
-    menues.forEach(function(menue) {
-        document.getElementById(menue).style.right = "-100vw";
-    });
+    
+    //find all menue elements and set ich of screen
+    let menueQuery = document.querySelectorAll(".menue")
+    for(let i = 0 ; i < menueQuery.length; i++){
+        menueQuery[i].style.right = "-100vw"
+    }
     document.getElementById(("button_DC")).addEventListener("click", function() {
         siteChange("menue_DC")
     });
+    //show menue_TS, hide others
     document.getElementById(("button_TS")).addEventListener("click", function() {
         siteChange("menue_TS")
     });
+    //
     document.getElementById(("send_DC")).addEventListener("click", function() {
-        let valueArr = []
-        for(let i = 0; i <= inputs.length; i++) {
-            valueArr.join(document.getElementById(inputs[i]).value)
+        console.log(inputs)
+        var valueArr = []
+        console.log(valueArr)
+        for(let i = 0; i < inputs.length; i++) {
+            console.log(i)
+            let inp = document.getElementById((inputs[i])).value
+            valueArr.push(inp)
         }
         console.log(valueArr)
         ipcRenderer.send("edit")
@@ -43,7 +53,12 @@ function siteChange(thisMenue) {
     })
 }
 
-function sendCon() {
-    ipcRenderer.send("debug", "debug");
-    ipcRenderer.send("testCon", input);
-};
+function nameSplit(name, type) {
+    if (type == "btn"){
+        return "button_" + name.split("_")[1]
+    }else if (type == "menue"){
+        return "menue_" + name.split("_")[1]
+    }else(
+        console.log("neZZZ")
+    )
+}
