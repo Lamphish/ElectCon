@@ -1,31 +1,25 @@
 const { ipcRenderer } = require("electron");
 
-var menues = [
-    "menue_DC",
-    "menue_TS"
-]
+//find all menue elements and set ich of screen
+var menues = document.getElementsByClassName("menue")
+
 //html site input field id`s
-var inputs = [
-    "value1_DC",
-    "value2_DC",
-    "value3_DC",
-    "value4_DC"
-]
+var inputs = document.getElementsByClassName("input_DC")
 //loads as soon as the site is loaded
 document.addEventListener("DOMContentLoaded", function () {
     console.log("DOMLoader");
-    
-    //find all menue elements and set ich of screen
-    let menueQuery = document.querySelectorAll(".menue")
-    for(let i = 0 ; i < menueQuery.length; i++){
-        menueQuery[i].style.right = "-100vw"
+    //log the id of every menue item
+    for(let i = 0 ; i < menues.length; i++){
+        console.log(menues[i].id)
     }
+    siteHandler("all")
+    //on DC click (show)
     document.getElementById(("button_DC")).addEventListener("click", function() {
-        siteChange("menue_DC")
+     siteHandler("menue_DC")
     });
-    //show menue_TS, hide others
+    //on TS click (show)
     document.getElementById(("button_TS")).addEventListener("click", function() {
-        siteChange("menue_TS")
+     siteHandler("menue_TS")
     });
     //
     document.getElementById(("send_DC")).addEventListener("click", function() {
@@ -34,7 +28,7 @@ document.addEventListener("DOMContentLoaded", function () {
         console.log(valueArr)
         for(let i = 0; i < inputs.length; i++) {
             console.log(i)
-            let inp = document.getElementById((inputs[i])).value
+            let inp = document.getElementById((inputs[i].id)).value
             valueArr.push(inp)
         }
         console.log(valueArr)
@@ -42,15 +36,17 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-function siteChange(thisMenue) {
-    menues.forEach(function(menue) {
-        if(menue == thisMenue){
-            console.log("show " + menue)
-            document.getElementById(menue).style.right = "0"
+function siteHandler(thisMenue) {
+    for(let i = 0 ; i < menues.length; i++){
+        if(menues[i].id == thisMenue){
+            console.log("show " + menues[i].id)
+            document.getElementById(menues[i].id).style.right = "0"
+        }else if("all" == thisMenue){
+            document.getElementById(menues[i].id).style.right = "-100vw"
         }else {
-            document.getElementById(menue).style.right = "-100vw"
+            document.getElementById(menues[i].id).style.right = "-100vw"
         }
-    })
+    }
 }
 
 function nameSplit(name, type) {
@@ -58,7 +54,7 @@ function nameSplit(name, type) {
         return "button_" + name.split("_")[1]
     }else if (type == "menue"){
         return "menue_" + name.split("_")[1]
-    }else(
-        console.log("neZZZ")
-    )
+    }else{
+        console.log("unavailable type")
+    }
 }
