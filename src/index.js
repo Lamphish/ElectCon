@@ -1,7 +1,8 @@
 const { app, BrowserWindow, ipcMain } = require('electron');
 const path = require('path');
 const { exec } = require('child_process');
-
+const { rewrite } = require('./sheller/shellDesigner');
+const { env } = require('process');
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 // eslint-disable-next-line global-require
@@ -54,11 +55,11 @@ app.on('activate', () => {
 
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and import them here.
-ipcMain.on("testCon", (event, data) => {
-  exec("Test-Connection " + data, {'shell':'powershell.exe'}, (error, stdout)=> {
-    console.log(stdout)
-    console.log(error)
-  })
+ipcMain.on("rewrite", (lost, data) => {
+  console.log(data)
+  data.forEach(Elem => {
+    console.log(Elem)
+  });
 });
 
 ipcMain.on("debug", () => {

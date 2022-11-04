@@ -1,10 +1,11 @@
 const { ipcRenderer } = require("electron");
 
-//find all menue elements and set ich of screen
+//find all menue elements
 var menues = document.getElementsByClassName("menue")
 
-//html site input field id`s
-var inputs = document.getElementsByClassName("input_DC")
+//find all DC input elements
+var inputsDC = document.getElementsByClassName("input_DC")
+
 //loads as soon as the site is loaded
 document.addEventListener("DOMContentLoaded", function () {
     console.log("DOMLoader");
@@ -12,6 +13,7 @@ document.addEventListener("DOMContentLoaded", function () {
     for(let i = 0 ; i < menues.length; i++){
         console.log(menues[i].id)
     }
+    //hide all sites
     siteHandler("all")
     //on DC click (show)
     document.getElementById(("button_DC")).addEventListener("click", function() {
@@ -23,16 +25,13 @@ document.addEventListener("DOMContentLoaded", function () {
     });
     //
     document.getElementById(("send_DC")).addEventListener("click", function() {
-        console.log(inputs)
-        var valueArr = []
-        console.log(valueArr)
-        for(let i = 0; i < inputs.length; i++) {
-            console.log(i)
-            let inp = document.getElementById((inputs[i].id)).value
-            valueArr.push(inp)
+        var valueArr = Object.setPrototypeOf([], null)
+        for(let i = 0; i < inputsDC.length; i++) {
+            valueArr[i] = String(document.getElementById((inputsDC[i].id)).value)
+            console.log(valueArr[i])
         }
         console.log(valueArr)
-        ipcRenderer.send("edit")
+        ipcRenderer.send("rewrite", (valueArr))
     });
 });
 
