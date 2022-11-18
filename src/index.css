@@ -14,6 +14,7 @@ body {
 }
 .defaultContainer {
   margin: 3px;
+  padding: 8px;
   border-radius: 5px;
   background-color: var(--blue-forground);
   border: solid 2px var(--mint-highlight);
@@ -36,6 +37,7 @@ body {
   padding: 10px;
 }
 .chip:hover, .sidebarElement:hover:not(:first-child), .button:hover {
+  transition: 50ms;
   background-color: var(--hover-color);
 }
 #menueContainer {
@@ -56,6 +58,34 @@ body {
   align-items: center;
   justify-items: center;
   padding: 10px;
+}
+.menueInner {
+  display: flex;
+  flex-wrap: wrap;
+
+}
+.afterParent{
+  position: relative;
+  margin: 5px;
+  width: fit-content;
+  height: fit-content;
+}
+.afterParent::after {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 0 2px;
+  background-color: var(--blue-forground);
+  content: "PC NAME";
+  font-size: smaller;
+  transition: 250ms;
+  border-radius: 25%;
+}
+.afterParent:hover::after {
+  left: 20px;
+  top: 5px;
+  transition: 250ms;
 }
 #footer {
   grid-column: 1 / span 2;

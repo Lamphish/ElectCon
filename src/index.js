@@ -55,11 +55,8 @@ app.on('activate', () => {
 
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and import them here.
-ipcMain.on("rewrite", (lost, data) => {
-  console.log(data)
-  data.forEach(Elem => {
-    console.log(Elem)
-  });
+ipcMain.on("rewrite", (event, data, srv) => {
+  rewrite(data)
 });
 
 ipcMain.on("debug", () => {

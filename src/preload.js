@@ -25,12 +25,12 @@ document.addEventListener("DOMContentLoaded", function () {
     });
     //
     document.getElementById(("send_DC")).addEventListener("click", function() {
-        var valueArr = Object.setPrototypeOf([], null)
+        var valueArr = []
         for(let i = 0; i < inputsDC.length; i++) {
             valueArr[i] = String(document.getElementById((inputsDC[i].id)).value)
             console.log(valueArr[i])
         }
-        console.log(valueArr)
+        valueArr.push("dc")
         ipcRenderer.send("rewrite", (valueArr))
     });
 });
