@@ -1,13 +1,11 @@
 const { ipcRenderer } = require("electron");
-
-//find all menue elements
 var menues = document.getElementsByClassName("menue")
-
 //find all DC input elements
 var inputsDC = document.getElementsByClassName("input_DC")
 
 //loads as soon as the site is loaded
 document.addEventListener("DOMContentLoaded", function () {
+    
     console.log("DOMLoader");
     //log the id of every menue item
     for(let i = 0 ; i < menues.length; i++){
@@ -23,7 +21,7 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById(("button_TS")).addEventListener("click", function() {
      siteHandler("menue_TS")
     });
-    //
+
     document.getElementById(("send_DC")).addEventListener("click", function() {
         var valueArr = []
         for(let i = 0; i < inputsDC.length; i++) {
@@ -45,15 +43,5 @@ function siteHandler(thisMenue) {
         }else {
             document.getElementById(menues[i].id).style.right = "-100vw"
         }
-    }
-}
-
-function nameSplit(name, type) {
-    if (type == "btn"){
-        return "button_" + name.split("_")[1]
-    }else if (type == "menue"){
-        return "menue_" + name.split("_")[1]
-    }else{
-        console.log("unavailable type")
     }
 }

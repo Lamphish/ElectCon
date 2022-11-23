@@ -5,7 +5,7 @@ function rewrite(dataArray) {
     var psFolder = dataArray[dataArray.length-1];
     console.log(dataArray)
     
-    fs.readFile('../electCon/powershell/' + psFolder + `/blueprint.ps1`, 'utf-8', function(err, data) {
+    fs.readFile('../electcon-win32-x64/resources/app/powershell/' + psFolder + '/blueprint.ps1', 'utf-8', function(err, data) {
         if (err) throw err;
         var updated
 
@@ -14,11 +14,12 @@ function rewrite(dataArray) {
                             .replace("!input1", dataArray[1]) //New-NetIPAddress -DefaultGateway l 14
                             .replace("!input2", dataArray[2]) //Rename-Computer -NewName l 25
                             .replace("!input3", dataArray[3]) //Install-ADDSForest -DomainName l 33
-            fs.writeFile('../electCon/powershell/' + psFolder + `/executable.ps1`, updated, 'utf-8', function(err, data) {
+            fs.writeFile('../electcon-win32-x64/resources/app/powershell/' + psFolder + '/executable.ps1', updated, 'utf-8', function(err, data) {
                 if (err) throw err;
-                console.log('Done!');
+                
             })
         }
+        
     });
     
 }

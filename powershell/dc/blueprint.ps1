@@ -29,8 +29,8 @@ Rename-Computer -NewName !input2 -Restart -Force
 
 # Installieren der Active Directory-Domänendienste und Heraufstufen des Servers zu einem Domänencontroller
 
-1. Add-WindowsFeature AD-Domain-Services
-2. Install-ADDSForest -DomainName !input3 -InstallDNS
+Add-WindowsFeature AD-Domain-Services
+Install-ADDSForest -DomainName !input3 -InstallDNS
 ## >Hinweis: Ersetzen Sie "vdom.local" durch den korrekten Namen der Gesamtstruktur und Domäne.<
 
 ---------------------

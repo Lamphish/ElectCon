@@ -1,8 +1,7 @@
 const { app, BrowserWindow, ipcMain } = require('electron');
 const path = require('path');
-const { exec } = require('child_process');
 const { rewrite } = require('./sheller/shellDesigner');
-const { env } = require('process');
+const {executer} = require('./sheller/shellExecuter');
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 // eslint-disable-next-line global-require
@@ -18,8 +17,8 @@ const createWindow = () => {
     autoHideMenuBar: true,
     webPreferences: {
       nodeIntegration: true,
-      contextIsolation: true,
-      preload: path.resolve("./src/preload.js")
+      contextIsolation: false,
+      preload: path.join(__dirname, 'preload.js')
     },
     
   });
@@ -57,6 +56,8 @@ app.on('activate', () => {
 // code. You can also put them in separate files and import them here.
 ipcMain.on("rewrite", (event, data, srv) => {
   rewrite(data)
+  executer()
+  console.log('Done!');
 });
 
 ipcMain.on("debug", () => {
