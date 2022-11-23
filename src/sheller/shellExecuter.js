@@ -5,7 +5,7 @@ function executer() {
     child = spawn("powershell.exe",["../electcon-win32-x64/resources/app/powershell/dc/test.ps1"]);
     child.stdout.on("data",function(data){
         toString(data)
-        fs.appendFile('C:/Users/wagnerlui/Desktop/feedback.txt', data, 'utf-8', function(err, data) {
+        fs.appendFile('../electcon-win32-x64/resources/app/powershell/dc/log.txt', data, 'utf-8', function(err, data) {
             if (err) throw err;
             console.log('Done!');
         })
