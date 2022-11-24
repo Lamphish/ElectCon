@@ -4,7 +4,7 @@ var menues = document.getElementsByClassName("menue")
 var inputsDC = document.getElementsByClassName("input_DC")
 
 //loads as soon as the site is loaded
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", () => {
     
     console.log("DOMLoader");
     //log the id of every menue item
@@ -14,15 +14,15 @@ document.addEventListener("DOMContentLoaded", function () {
     //hide all sites
     siteHandler("all")
     //on DC click (show)
-    document.getElementById(("button_DC")).addEventListener("click", function() {
+    document.getElementById(("button_DC")).addEventListener("click", () => {
      siteHandler("menue_DC")
     });
     //on TS click (show)
-    document.getElementById(("button_TS")).addEventListener("click", function() {
+    document.getElementById(("button_TS")).addEventListener("click", () => {
      siteHandler("menue_TS")
     });
 
-    document.getElementById(("send_DC")).addEventListener("click", function() {
+    document.getElementById(("send_DC")).addEventListener("click", () => {
         var valueArr = []
         for(let i = 0; i < inputsDC.length; i++) {
             valueArr[i] = String(document.getElementById((inputsDC[i].id)).value)
