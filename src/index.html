@@ -2,53 +2,20 @@
 <html>
   <head>
     <meta charset="UTF-8" />
-    <title>Hello World!</title>
-    <link rel="stylesheet" href="index.css"/>
-    <script defer src="./renderer.js"></script>
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'"
+    />
+    <meta
+      http-equiv="X-Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'"
+    />
+    <title>Hello from Electron renderer!</title>
   </head>
   <body>
-    <div id="mainGrid">
-      <div id="sidebar" class="defaultContainer">
-        <div class="sidebarElement"><img src="../images/logo.svg" alt="Grasenhiller Logo"></div>
-        <button id="button_DC" class="sidebarElement defaultContainer">DC</button>
-        <button id="button_TS" class="sidebarElement defaultContainer">TS</button>
-        
-      </div>
-
-      <div id="menueContainer">
-
-        <div id="menue_DC" class="menue">
-          <div class="chipContainer">
-            <div class="chip defaultContainer">Lorem</div>
-            <div class="chip defaultContainer">Lorem ipsum</div>
-            <div class="chip defaultContainer">fem t sum</div>
-          </div>
-          <div class="defaultContainer menueInner">
-            <div class="value1_DC afterParent"><input type="text" class="defaultContainer input_DC" id="value1_DC" required></div>
-            <div class="value2_DC afterParent"><input type="text" class="defaultContainer input_DC" id="value2_DC" required></div>
-            <div class="value3_DC afterParent"><input type="text" class="defaultContainer input_DC" id="value3_DC" required></div>
-            <div class="value4_DC afterParent"><input type="text" class="defaultContainer input_DC" id="value4_DC" required></div>
-            <button id="send_DC" class="defaultContainer button">Send it!
-
-            </button>
-          </div>
-        </div>
-
-        <div id="menue_TS" class="menue">
-          <div class="chipContainer">
-            <div class="chip defaultContainer">Jedes Beispiel</div>
-            <div class="chip defaultContainer">Worddokument </div>
-            <div class="chip defaultContainer">zip Format</div>
-          </div>
-          <div class="defaultContainer">
-            <button id="button_TS" class="defaultContainer button">TS</button>
-          </div>
-        </div>
-        
-      </div>
-      <div id="footer" class="defaultContainer">
-        footer
-      </div>
-    </div>
+    <h1>Hello from Electron renderer!</h1>
+    <p>👋</p>
+    <p id="info"></p>
   </body>
+  <script src="./renderer.js"></script>
 </html>
