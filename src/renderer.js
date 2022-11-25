@@ -1,14 +1,5 @@
-const information = document.getElementById('info');
-information.innerText = `This app is using Chrome (v${versions.chrome()}), Node.js (v${versions.node()}), and Electron (v${versions.electron()})`;
+const btn = document.getElementById("btn")
+const rawInputArray = Array.from(document.querySelectorAll(".dci"))
+console.log(rawInputArray)
 
-const func = async () => {
-    const response = await window.versions.ping()
-}
-
-async function funki() {
-    let test = await window.versions.chrome()
-    return test
-}
-
-func()
-console.log(funki())
+window.mainAPI.arrayChannel(rawInputArray)

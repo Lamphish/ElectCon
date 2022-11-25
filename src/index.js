@@ -6,26 +6,28 @@ const createWindow = () => {
     width: 800,
     height: 600,
     webPreferences: {
-      preload: path.join(__dirname, 'preload.js'),
+      preload: path.join(__dirname, './preload.js'),
     },
   });
-  ipcMain.handle("ping", () => {
-    
-    console.log("pong")
-    
-  })
   win.loadFile('./src/index.html');
 };
 
 app.whenReady().then(() => {
   createWindow();
+  
+  ipcMain.handle('objArray', (event, data) => {
+    console.log("test")
+  })
 
   app.on('activate', () => {
     if (BrowserWindow.getAllWindows().length === 0) {
       createWindow();
     }
   });
+  
 });
+
+
 
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') {
