@@ -15,10 +15,6 @@ const createWindow = () => {
 app.whenReady().then(() => {
   createWindow();
   
-  ipcMain.handle('objArray', (event, data) => {
-    console.log("test")
-  })
-
   app.on('activate', () => {
     if (BrowserWindow.getAllWindows().length === 0) {
       createWindow();
@@ -27,7 +23,11 @@ app.whenReady().then(() => {
   
 });
 
-
+//catch the inputfields conent array
+ipcMain.on('objArray', (event, array) => {
+  console.log("Data array recieved by the preload: \n")
+  console.log(array)
+})
 
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') {

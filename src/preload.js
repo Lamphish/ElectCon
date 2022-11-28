@@ -1,5 +1,6 @@
 const { contextBridge, ipcRenderer } = require('electron');
 
 contextBridge.exposeInMainWorld('mainAPI', {
-  arrayChannel: (rawInputArray) => ipcRenderer.invoke('objArray', )
+  //bridge the array with the inputs of the inputfields
+  arrayChannel: (editedArray) => ipcRenderer.send('objArray', editedArray)
 });
