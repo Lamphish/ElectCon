@@ -1,4 +1,6 @@
 const { app, BrowserWindow, ipcMain } = require('electron');
+const { editShell } = require('./mainModules/editShell')
+const { execShell } = require('./mainModules/execShell')
 const path = require('path');
 
 const createWindow = () => {
@@ -24,9 +26,11 @@ app.whenReady().then(() => {
 });
 
 //catch the inputfields conent array
-ipcMain.on('objArray', (event, array) => {
+ipcMain.on('objArray', (event, array, server) => {
   console.log("Data array recieved by the preload: \n")
   console.log(array)
+  editShell(array, server)
+  execShell("dc", "pwsh3.ps1")
 })
 
 app.on('window-all-closed', () => {

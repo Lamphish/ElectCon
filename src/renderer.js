@@ -4,15 +4,15 @@ const buttons = document.querySelectorAll(".sendItButtons")
 buttons.forEach(button => {
     button.addEventListener('click', function() {
         console.log("Send it Button Clicked: " + button.name)
-        //form the button name to fit the input fields class => send the inputclass name to getInputArray
-        console.log(getInputArray("." + button.name.split("b")[0]+"i"))
+        //form the button name to fit the input fields class => send the server name to getInputArray
+        console.log(getInputArray(button.name.split("b")[0]))
     })
 });
 
 
-function getInputArray(inputClass) {
+function getInputArray(server) {
     //find all input fields
-    const rawInputArray = Array.from(document.querySelectorAll(inputClass))
+    const rawInputArray = Array.from(document.querySelectorAll("." + server + "i"))
     //safe the inputfield name in a property array
     const prop = rawInputArray.map(input => input.name)
     //safe the inputfield value in a value array
@@ -31,7 +31,7 @@ function getInputArray(inputClass) {
     console.log(editedArray)
 
     //sendt the object array to the main thru the bridge
-    window.mainAPI.arrayChannel(editedArray)
+    window.mainAPI.arrayChannel(editedArray, server)
 
-    return "Get Input of the " + inputClass + " Group: Success"
+    return "Get Input of the " + server + " Group: Success"
 }
