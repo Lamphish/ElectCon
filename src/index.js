@@ -30,7 +30,7 @@ ipcMain.on('objArray', (event, array, server) => {
   console.log("Data array recieved by the preload: \n")
   console.log(array)
   editShell(array, server)
-  execShell("dc", "pwsh3.ps1")
+  execShell("dc")
 })
 
 app.on('window-all-closed', () => {
