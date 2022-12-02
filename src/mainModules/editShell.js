@@ -4,7 +4,7 @@ const path = "../electCon/src/scripts/"
 function editShell(editedArray, server) {
 
     //find blueprint file and read the data
-    fs.readFile(path + server + "/pwsh.ps1", "utf-8", function (err,data) {
+    fs.readFile(path + server + "/blueprint.ps1", "utf-8", function (err,data) {
         if (err) {
             return console.log(err);
         }
@@ -22,8 +22,8 @@ function editShell(editedArray, server) {
         console.log(`Result: \n${result}`)
 
         //safe the edited blueprint to a file, if not exisiting create the file
-        fs.writeFile(path + server + "/pwsh2.ps1", result, "utf-8", function (err) {
-            if (err) return console.log(err);
+        fs.writeFile(path + server + "/executable.ps1", result, "utf-8", function (err) {
+            if (err) return
         });
     });
 }

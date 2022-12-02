@@ -1,1 +1,27 @@
-Powershell Script number executed:undefinedPowershell Script number executed:undefined
+
+Source        Destination     IPV4Address      IPV6Address                              Bytes    Time(ms) 
+------        -----------     -----------      -----------                              -----    -------- 
+NID82148      google.com      216.58.212.142                                            32       8        
+NID82148      google.com      216.58.212.142                                            32       6        
+NID82148      google.com      216.58.212.142                                            32       8        
+NID82148      google.com      216.58.212.142                                            32       7        
+
+
+
+Source        Destination     IPV4Address      IPV6Address                              Bytes    Time(ms) 
+------        -----------     -----------      -----------                              -----    -------- 
+NID82148      google.com      216.58.212.142                                            32       6        
+NID82148      google.com      216.58.212.142                                            32       6        
+NID82148      google.com      216.58.212.142                                            32       7        
+NID82148      google.com      216.58.212.142                                            32       6        
+
+
+
+Source        Destination     IPV4Address      IPV6Address                              Bytes    Time(ms) 
+------        -----------     -----------      -----------                              -----    -------- 
+NID82148      google.com      142.250.181.238                                           32       6        
+NID82148      google.com      142.250.181.238                                           32       8        
+NID82148      google.com      142.250.181.238                                           32       8        
+NID82148      google.com      142.250.181.238                                           32       7        
+
+

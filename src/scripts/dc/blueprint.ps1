@@ -1,0 +1,1 @@
+hello mom #heeelp# #variable10# i hope stackoverflow can help me

@@ -1,4 +1,7 @@
-const buttons = document.querySelectorAll(".sendItButtons")
+
+
+
+/* const buttons = document.querySelectorAll(".sendItButtons")
 
 //create an eventlistener for each "sendItButton"
 buttons.forEach(button => {
@@ -35,3 +38,4 @@ function getInputArray(server) {
 
     return "Get Input of the " + server + " Group: Success"
 }
+*/
